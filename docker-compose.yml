@@ -6,6 +6,7 @@ services:
       - ./docker/app/public:/var/www/app/public:rw,delegated
       - ./docker/app/storage:/var/www/app/storage:rw,delegated
       - ./config/php/php-cli.ini:/usr/local/etc/php/php-cli.ini:ro
+    user: "1000:1000"
     depends_on:
       - db
     networks:
@@ -61,6 +62,7 @@ services:
       - ./config/mysql/backup-script:/etc/cron.daily/daily:ro
       - ./config/mysql/backup-script:/etc/cron.weekly/weekly:ro
       - ./config/mysql/backup-script:/etc/cron.monthly/monthly:ro
+    user: "1000:1000"
     networks:
       - proxy
     extra_hosts:
