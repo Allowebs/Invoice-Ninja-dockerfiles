@@ -1,22 +1,6 @@
 version: "3.9"
 
 services:
-  server:
-    image: nginx
-    restart: always
-    volumes:
-      - ./config/nginx/in-vhost.conf:/etc/nginx/conf.d/in-vhost.conf:ro
-      - ./docker/app/public:/var/www/app/public:ro
-    depends_on:
-      - app
-    ports:
-      - "80:80"
-      - "443:443"
-    networks:
-      - proxy
-    extra_hosts:
-      - "invoice.mindbridge.dev:35.183.108.180"
-
   app:
     image: invoiceninja/invoiceninja:5
     restart: always
