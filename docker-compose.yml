@@ -12,6 +12,9 @@ services:
       - proxy
     extra_hosts:
       - "invoice.mindbridge.dev:35.183.108.180"
+    ports:
+      - "80:80"
+      - "443:443"
     environment:
       APP_URL: https://invoice.mindbridge.dev
       APP_KEY: e7dc00173d37e69ded034cbbcb6d6ae7
